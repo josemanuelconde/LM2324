@@ -1,0 +1,29 @@
+#suelo
+{
+    background-color: rgb(221, 73, 73);
+    width: 100%;
+    height: 30%;
+    position: absolute;
+    margin-top: 51%;
+    margin-left: -0.8%;
+
+}
+
+#casa
+{
+    background-color: rgb(243, 9, 231);
+    width: 42%;
+    height: 70%;
+    position: absolute;
+    margin-left: 28%;
+    margin-top: 8%;
+    
+}
+#puerta
+{
+    background-color: chocolate;
+    width: 25%;
+    height: 15%;
+    
+}
+
