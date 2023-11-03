@@ -22,8 +22,71 @@
 #puerta
 {
     background-color: chocolate;
-    width: 25%;
+    width: 50%;
     height: 15%;
+    margin-left: 22%;
+    margin-top: 8%;
+    position: absolute;
     
 }
+#techo
+{
+    background-color: darkolivegreen;
+    width: 15%;
+    height: 30%;
+    margin-left: 40%;
+    margin-top: 37.5%;
+    position: absolute;
+}
+body
+{
+    background-color: chartreuse;
+}
+#arbol
+{
+    background-color: blueviolet;
+    width: 8%;
+    height: 50%;
+    margin-left: 10%;
+    margin-top: 15%;
+    position: absolute;
+}
+#hoja
+{
+    background-color: darkturquoise;
+    width: 20%;
+    height: 20%;
+    margin-left: 4%;
+    margin-top: 15%;
+    position: absolute;
 
+}
+#sol
+{
+    background-color: hotpink;
+    width: 170px;
+    height: 170px;
+    margin-left: 80%;
+    position: absolute;
+    border-radius: 100%;
+}
+#ventana
+{
+    background-color: cadetblue;
+    width: 150px;
+    height: 150px;
+    margin-left: 52%;
+    margin-top: 22%;
+    position: absolute;
+    border-radius: 100%;
+}
+#ventana2
+{
+    background-color: cadetblue;
+    width: 150px;
+    height: 150px;
+    margin-left: 32%;
+    margin-top: 22%;
+    position: absolute;
+    border-radius: 100%;
+}
