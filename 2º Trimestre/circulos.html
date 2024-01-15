@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Circulos</title>
+
+<meta charset="UTF-8">
+
+<script src="circulos.js"></script>
+
+<style>
+
+.contenedor
+{
+    display: flex;
+}
+
+#rojo 
+{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-color: red;
+    margin: 10px 10px;
+}
+
+#azul 
+{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-color: blue;
+    margin: 10px 10px;
+    
+}
+
+#verde
+{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-color: green;
+    margin: 10px 10px;
+}
+
+button
+{
+    width: 100px;
+
+    margin: 10px 10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Circulos</h1>
+
+
+<div class="contenedor">
+
+    <div id="rojo"></div>
+    <div id="azul"></div>
+    <div id="verde"></div>
+
+</div>
+
+<div class="contenedor">
+
+    <div class="boton">
+
+        <button onclick="ocultar('rojo')">Ocular rojo</button>
+        
+
+        <button onclick="ocultar('azul')">Ocular azul</button>
+        
+
+        <button onclick= "ocultar('verde')">Ocular verde</button>
+        
+        
+    </div>
+
+    <div class="contenedor">
+
+        <button onclick="mostrar('rojo')">mostrar rojo</button>
+        <button onclick="mostrar('azul')">mostrar azul</button>
+        <button onclick="mostrar('verde')">mostrar verde</button>
+
+    </div>
+</div>
+
+
+
+
+</html>
