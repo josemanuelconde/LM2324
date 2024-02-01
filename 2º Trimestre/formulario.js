@@ -7,7 +7,7 @@ function validar(elementos)
 
     if(elementos[i].value == "")
     {
-        
+
         estanCorrectos = false
     }
 
@@ -15,5 +15,6 @@ function validar(elementos)
     
     estanCorrectos = false
 
+    
     return estanCorrectos;
 }
