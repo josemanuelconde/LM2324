@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagenes</title>
+</head>
+<body onload="seleccionaEscudo()"> 
+    <img id="escudo" src="" alt="">
+
+    <script>
+
+        let archivos = ["pingu.jpg", "fe.jpg", "mario.jpg", "pingu.jpg"];
+
+        function random(min,max)
+        {
+            return  Math.floor((Math.random()*(max - min + 1))+ min);
+        }
+
+        function seleccionaEscudo()
+        {
+            let numero = random(0, archivos.length - 1);
+            document.getElementById("escudo").src = "" + archivos[numero];       
+        }
+
+
+    </script>
+    
+</body>
+</html>
