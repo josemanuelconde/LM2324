@@ -40,5 +40,5 @@ function calcularMedia()
 
 function borrar()
 {
-
+    co
 }
