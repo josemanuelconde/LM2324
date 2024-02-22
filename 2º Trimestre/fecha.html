@@ -11,8 +11,21 @@
     <script>
         function cargar(){
             let cadena =localStorage.getItem("ultimafecha");
-           
+           var hoy = new Date();
+           var ahora = hoy.toLocaleString();
+           if(cadena!=null)
+           {
+            document.getElementById("texto").innerHTML = "Se conectó la ultima vez el dia" +cadena;
+
+           }
+           else
+           {
+                document.getElementById("texto").innerHTML = "Hasta ahora nunca te habias conectado";
+
+           }
+           localStorage.setItem("ultimafecha", ahora);
         }
+        window.onload =cargar();
     </script>
 </body>
 </html>
