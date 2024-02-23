@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de tareas</title>
+</head>
+<body>
+    <h1>Lista de tareas</h1>
+    <input type="text" id="tarea" placeholder="Escribe algo">
+    <button onclick="anadir()">Añadir</button>
+    <ul id="listado"></ul>
+
+    <script>
+        function anadir() {
+            let tarea = document.getElementById("tarea").value;
+            if (tarea.trim() !== "") {
+                // Obtener tareas existentes del localStorage
+                let tareasGuardadas = JSON.parse(localStorage.getItem("tareas")) || [];
+
+                // Agregar la nueva tarea al array
+                tareasGuardadas.push(tarea);
+
+                // Guardar el array actualizado en el localStorage
+                localStorage.setItem("tareas", JSON.stringify(tareasGuardadas));
+
+                // Limpiar el campo de entrada
+                document.getElementById("tarea").value = "";
+
+                // Mostrar la lista actualizada
+                mostrarTareas();
+            } else {
+                alert("Por favor, ingresa una tarea válida.");
+            }
+        }
+
+        function mostrarTareas() {
+            let tareasGuardadas = JSON.parse(localStorage.getItem("tareas")) || [];
+            let listaHTML = "";
+
+            // Crear la lista de tareas en formato HTML
+            tareasGuardadas.forEach(function(tarea) {
+                listaHTML += "<li>" + tarea + "</li>";
+            });
+
+            // Mostrar la lista en el elemento con id "listado"
+            document.getElementById("listado").innerHTML = listaHTML;
+        }
+
+        function cargaPagina() {
+            mostrarTareas();
+        }
+
+        window.onload = cargaPagina();
+    </script>
+    
+</body>
+</html>
