@@ -18,25 +18,52 @@
           <option value="Monospace">Monospace</option>
           </select> </td>
       <td><input id="color" type="color" onchange="cambiarColor()"></td>
+      <td><button onclick="guardar()">Guardar</button></td>
     </tr>
   </table>
   <script type="text/javascript">
-      var tamano = 100;// TamaNo inicial
+      var preferencias = { 
+        fuente: "Times New Roman" ,
+        tamano: 100,
+        color: "black"
+    };
       function aumenta(){
-        tamano+=25;
-        document.getElementById("parrafo").style.fontSize = tamano+"%"; // aumentamos un 25% el tamaño
+        preferencias.tamano+=25;
+        document.getElementById("parrafo").style.fontSize = preferencias.tamano+"%"; // aumentamos un 25% el tamaño
       }
       function disminuye(){
-        tamano-=25;
-        document.getElementById("parrafo").style.fontSize = tamano+"%"; //decrementamos un 25% el tamaño
+        preferencias.tamano-=25;
+        document.getElementById("parrafo").style.fontSize = preferencias.tamano+"%"; //decrementamos un 25% el tamaño
       }
       function cambiarColor(){
-        document.getElementById('parrafo').style.color = document.getElementById("color").value; //Cambiamos el color del parrafo
+        document.getElementById("parrafo").style.color = document.getElementById("color").value; //Cambiamos el color del parrafo
+        preferencias.color = document.getElementById("color").value;
       }
       function cambiarFuente(font) {
-        document.getElementById('parrafo').style.fontFamily = font.value; // Cambiamos la fuente del parrafo
+        document.getElementById("parrafo").style.fontFamily = font.value; // Cambiamos la fuente del parrafo
+        preferencias.fuente = font.value;
       }
-      º
+      function guardar(){
+        localStorage.setItem("preferencias", JSON.stringify(preferencias));
+       // localStorage.setItem("tamaño", tamano);
+       // localStorage.setItem("fuente", document.getElementById("parrafo").style.fontFamily)
+       // localStorage.setItem("color", document.getElementById("parrafo").style.color)
+      }
+      function cargarDatos(){
+        var objeto = localStorage.getItem("preferencias");
+        if(objeto!=null){
+        preferencias = JSON.parse(objeto);
+        document.getElementById("parrafo").style.color = preferencias.color;
+        document.getElementById("parrafo").style.fontFamily = preferencias.fuente;
+        document.getElementById("parrafo").style.fontSize = preferencias.tamano+"%";
+      }
+      else{
+        preferencias.tamano = 100;
+        preferencias.fuente = "Times New Roman";
+        preferencias.color = "#000"
+      }
+    }
+      window.onload = cargarDatos(); //No  va a funcionar si no llamamos a cargarDatos
   </script>
   </body>
 </html>
