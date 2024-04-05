@@ -23,8 +23,8 @@
     <input type="email" name="" id="correo" placeholder="Email"><span id="errorcorreo"></span><br>
     <input type="date" name="" id="fnac"><span id="errorfecha"></span><br>
     <input type="text" name="" id="dni" placeholder="123456789x"><span id="errordni"></span><br>
-    <input type="password" name="" id="password1" placeholder="Contraseña" required><span id="errorcontra1"></span><br>
-    <input type="password" name="" id="password2" placeholder="Repita la Contraseña" required><span id="errorcontra2"></span><br>
+    <input type="password" name="" id="contra1" placeholder="Contraseña" required><span id="errorcontra1"></span><br>
+    <input type="password" name="" id="contra2" placeholder="Repita la Contraseña" required><span id="errorcontra2"></span><br>
     <label for="">Acepta la politica de privacidad</label><input type="checkbox" name="" id="privacidad" required><span id="errorprivacidad"></span><br>
 
     <button>Registrar</button>
@@ -36,6 +36,9 @@
                 let apellidos = $("#apellidos").val();
                 let correo = $("#correo").val();
                 let patronemail =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+                let patroncontra = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,15}/;
+                let contra1 = $("#contra1").val();
+                let contra2 = $("#contra2").val();
                 if(nombre==""){
                     $("#errornombre").text("Rellenar el campo nombre")
                 }
@@ -62,7 +65,18 @@
                     {
                         $("#errorcorreo").text("")
                     }
+
+                
                 }
+                if (!patroncontra.test(contra1)){
+                        $("#errorcontra1").text("Contraseña no valida, escriba una contraseña correcta");
+                        $("#errorcontra2").text("Contraseña no valida, escriba una contraseña correcta");
+                    }
+                    else
+                    {
+                        $("#errorcontra1").text("")
+                        $("#errorcontra2").text("")
+                    }
             })
         })
 
