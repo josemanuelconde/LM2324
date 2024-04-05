@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            margin: 5px 5px;
+        }
+
+        span{
+            color: red;
+        }
+    </style>
+    <script src="jquery-3.7.1.js"></script>
+</head>
+<body>
+
+    
+    <input type="text" placeholder="Nombre" id="nombre"><span id="errornombre"></span><br>
+    <input type="text" placeholder="Apellidos" id="apellidos"><span id="errorapellidos"></span><br>
+    <input type="email" name="" id="correo" placeholder="Email"><span id="errorcorreo"></span><br>
+    <input type="date" name="" id="fnac"><span id="errorfecha"></span><br>
+    <input type="text" name="" id="dni" placeholder="123456789x"><span id="errordni"></span><br>
+    <input type="password" name="" id="password1" placeholder="Contraseña" required><span id="errorcontra1"></span><br>
+    <input type="password" name="" id="password2" placeholder="Repita la Contraseña" required><span id="errorcontra2"></span><br>
+    <label for="">Acepta la politica de privacidad</label><input type="checkbox" name="" id="privacidad" required><span id="errorprivacidad"></span><br>
+
+    <button>Registrar</button>
+
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                let nombre = $("#nombre").val();
+                let apellidos = $("#apellidos").val();
+                let correo = $("#correo").val();
+                let patronemail =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+                if(nombre==""){
+                    $("#errornombre").text("Rellenar el campo nombre")
+                }
+                else
+                {
+                    $("#errornombre").text("")
+                }
+                if(apellidos==""){
+                    $("#errorapellidos").text("Rellenar el campo apellidos")
+                }
+                else
+                {
+                    $("#errorapellidos").text("")
+                }
+                if(correo==""){
+                    $("#errorcorreo").text("Rellenar el campo correo")
+                }
+                else
+                {
+                    if (!patronemail.test(correo)){
+                        $("#errorcorreo").text("Formato no valido")
+                    }
+                    else
+                    {
+                        $("#errorcorreo").text("")
+                    }
+                }
+            })
+        })
+
+        
+    </script>
+
+</body>
+</html>
